@@ -1,7 +1,7 @@
-
+//  importing the getGovernors function from database
 
 import { getGovernors } from "./database.js";
-
+import { getColonies } from "./database.js";
 
 const governors = getGovernors()
 
