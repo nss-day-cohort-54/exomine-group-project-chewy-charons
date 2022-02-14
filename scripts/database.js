@@ -1,7 +1,7 @@
 const database = {
     transientState: {},
 
-    governers: [
+    governors: [
         {id: 1, name: "Beatrice Rubelle", colonyId: 1, active: true},
         {id: 2, name: "Zapp Brannigan", colonyId: 1, active: true},
         {id: 3, name: "Zaphod Beeblbrox", colonyId: 1, active: true},
@@ -39,13 +39,39 @@ const database = {
     ]
 }
 
-export const setFacility = (facilityId) => {
-    database.transientState.selectedFacility = facilityId
-    document.dispatchEvent( new CustomEvent("stateChanged") )
+
+
+// creating and exporting functions to make a copy of each array
+// in the database to be used in other modules.
+
+
+export const getGovernors = () => {
+    return database.governors.map(g => ({...g}))
+}
+
+export const getColonies = () => {
+    return database.colonies.map(c => ({...c}))
+}
+
+export const getMinerals = () => {
+    return database.minerals.map(m => ({...m}))
 }
 
 export const getFacilities = () => {
     return database.facilities.map(f => ({...f}))
+}
+
+export const getPurchases = () => {
+    return database.purchases.map(p => ({...p}))
+}
+
+
+
+
+
+export const setFacility = (facilityId) => {
+    database.transientState.selectedFacility = facilityId
+    document.dispatchEvent( new CustomEvent("stateChanged") )
 }
 
 export const purchaseMineral = () => {
@@ -54,4 +80,4 @@ export const purchaseMineral = () => {
         // application can re-render and update state
         document.dispatchEvent( new CustomEvent("stateChanged") )
     }
-}
+
