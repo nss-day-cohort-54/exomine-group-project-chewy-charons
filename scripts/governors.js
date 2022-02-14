@@ -5,11 +5,23 @@ import { getColonies } from "./database.js";
 
 const governors = getGovernors()
 
+const colonies = getColonies()
 
-export const GovenorOptions = () => {
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.name === "gov") {
+            
+        }
+    }
+)
+
+
+export const GovernorOptions = () => {
+
 
     let html = ` 
-    <select id="governor">
+    <select id="governor" name="gov">
         <option value="0"> Choose your Governor </option>`
 
     const listItems = governors.map(gov => {
