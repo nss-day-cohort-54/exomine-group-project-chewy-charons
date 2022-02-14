@@ -5,14 +5,13 @@ import { Facilities } from "./facilities.js"
 import { GovenorOptions } from "./governors.js"
 
 export const xoMine = () => {
-    return `
+    let html = `
     <h1>Solar System Mining Marketplace</h1>
-
-    <label class="choosegovenor" for="Choose a Govenor">Author</label>
+    <label class="choosegovenor" for="choosegovenor">Choose a Govenor</label>
     ${GovenorOptions()}
-
-    <label class="facilities" for="Choose a Facility">Author</label>
+    <label class="choosefacility" for="choosefacility">Choose a Facility</label>
     ${Facilities()}
     `
+    return html
 }
 
