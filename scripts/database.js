@@ -2,12 +2,19 @@ const database = {
     transientState: {},
 
     governors: [
-        {id: 1, name: "Beatrice Rubelle", colonyId: 1, active: true},
-        {id: 2, name: "Zapp Brannigan", colonyId: 1, active: true},
-        {id: 3, name: "Zaphod Beeblbrox", colonyId: 1, active: true},
-        {id: 4, name: "Demi Lovato", colonyId: 2, active: true},
-        {id: 5, name: "Poot Lovato", colonyId: 3, active: true},
-        {id: 6, name: "Steve Brownlee", colonyId: 3, active: false}
+        { id: 1, name: "Beatrice Rubelle", colonyId: 1, active: true },
+        { id: 2, name: "Zapp Brannigan", colonyId: 1, active: true },
+        { id: 3, name: "Zaphod Beeblbrox", colonyId: 1, active: true },
+        { id: 4, name: "Demi Lovato", colonyId: 2, active: true },
+        { id: 5, name: "Poot Lovato", colonyId: 3, active: true },
+        { id: 6, name: "Steve Brownlee", colonyId: 3, active: false },
+        { id: 7, name: "Naomi Watts", colonyId: 4, active: true },
+        { id: 8, name: "Charlie Manson", colonyId: 1, active: false },
+        { id: 9, name: "Ben Stein", colonyId: 2, active: true },
+        { id: 10, name: "Marsha Brady", colonyId: 2, active: false },
+        { id: 11, name: "Travis Watkins", colonyId: 3, active: true },
+        { id: 12, name: "Molly Ringwald", colonyId: 1, active: false },
+        { id: 13, name: "Ginger Grant", colonyId: 1, active: false }
     ],
 
     colonies: [
@@ -23,9 +30,9 @@ const database = {
     ],
 
     facilities: [
-        {id: 1, name: "Io", active: true},
-        {id: 2, name: "Ganymede", active: true},
-        {id: 3, name: "NSS", active: false}
+        {id: 1, name: "Io", mineralId: [1, 2], ironInv: 67, saltInv: 12, active: true},
+        {id: 2, name: "Ganymede", mineralId: [1, 2], ironInv: 212, saltInv: 34, active: true},
+        {id: 3, name: "NSS", mineralId: [1, 3], ironInv: 66, nickelInv: 29, active: false}
     ],
 
     purchases: [
