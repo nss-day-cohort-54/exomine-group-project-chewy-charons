@@ -23,15 +23,19 @@ const database = {
     ],
 
     facilities: [
-        {},
+        {id: 1, name: "Io", active: true},
+        {id: 2, name: "Ganymede", active: true},
+        {id: 3, name: "NSS", active: false}
     ],
 
     purchases: [
         {
             id: 1,
+            amount: 1000,
             colonyId: 1,
             mineralId: 1,
-        },
+            facilityId: 1,
+        }
     ]
 }
 
