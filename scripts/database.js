@@ -48,9 +48,10 @@ const database = {
 
 
 
+
+
 // creating and exporting functions to make a copy of each array
 // in the database to be used in other modules.
-
 
 export const getGovernors = () => {
     return database.governors.map(g => ({...g}))
@@ -74,17 +75,53 @@ export const getPurchases = () => {
 
 
 
+// create and export FN to store the selected governor
+export const setSelectedGovernor = () => {
 
+}
+
+/////////////////////////////////////////////////////////
+///// S T A T E   S E T T I N G  F U N C T I O N S //////
+////////////////////////////////////////////////////////
+
+// create and export FN to set state for governor
+export const setGovernor = (governorId) => {
+    database.transientState.selectedGovernor = governorId
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+}
+
+// create and export FN to set state for colony
+export const setColony = (colonyId) => {
+    database.transientState.selectedColony = colonyId
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+}
+
+// create and export FN to set state for mineral
+export const setMineral = (mineralId) => {
+    database.transientState.selectedMineral = mineralId
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+}
+
+// create and export FN to set state for facility
 
 export const setFacility = (facilityId) => {
     database.transientState.selectedFacility = facilityId
-    document.dispatchEvent( new CustomEvent("stateChanged") )
+    document.dispatchEvent(new CustomEvent("stateChanged"))
 }
+
+// create and export FN to set state for purchase
+export const setPurchase = (purchaseId) => {
+    database.transientState.selectedpurchase = purchaseId
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+}
+
+
+
 
 export const purchaseMineral = () => {
 
-        // Broadcast custom event to entire documement so that the
+        // Broadcast custom event to entire document so that the
         // application can re-render and update state
-        document.dispatchEvent( new CustomEvent("stateChanged") )
+        document.dispatchEvent(new CustomEvent("stateChanged"))
     }
 
