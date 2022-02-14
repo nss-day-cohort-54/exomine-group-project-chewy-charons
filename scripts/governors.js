@@ -3,17 +3,17 @@
 import { getGovernors } from "./database.js";
 
 
-const governors = getGovernors() 
+const governors = getGovernors()
 
 
-export const GovernerOptions = () => {
+export const GovenorOptions = () => {
 
     let html = ` 
     <select id="governor">
         <option value="0"> Choose your Governor </option>`
 
     const listItems = governors.map(gov => {
-        return  `
+        return `
         <option value="${gov.id}"> ${gov.name}</option>
         `
     })
@@ -23,5 +23,5 @@ export const GovernerOptions = () => {
 
 
     return html
-    
+
 }
