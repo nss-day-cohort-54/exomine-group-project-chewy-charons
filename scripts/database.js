@@ -18,21 +18,27 @@ const database = {
     ],
 
     colonies: [
-        {id: 1, name: "Earth", governerId: [1, 2, 3]},
-        {id: 2, name: "Europa", governerId: 4},
-        {id: 3, name: "Mars", governerId: [5, 6]}
+        {id: 1, name: "Earth"},
+        {id: 2, name: "Europa"},
+        {id: 3, name: "Mars"}
     ],
 
     minerals: [
-        {id: 1, type: "Iron", facilityId: [1, 2, 3]},
-        {id: 2, type: "Salt", facilityId: [1, 2]},
-        {id: 3, type: "Nickel", facilityId: 3}
+        {id: 1, type: "Iron"},
+        {id: 2, type: "Salt"},
+        {id: 3, type: "Nickel"}
     ],
 
     facilities: [
-        {id: 1, name: "Io", mineralId: [1, 2], ironInv: 67, saltInv: 12, active: true},
-        {id: 2, name: "Ganymede", mineralId: [1, 2], ironInv: 212, saltInv: 34, active: true},
-        {id: 3, name: "NSS", mineralId: [1, 3], ironInv: 66, nickelInv: 29, active: false}
+        {id: 1, name: "Io", active: true},
+        {id: 2, name: "Ganymede", active: true},
+        {id: 3, name: "NSS", active: false}
+    ],
+
+    facilityMinerals: [
+        {id:1, facilityId: 1, mineralId: 1, mineralQty: 1,},
+        {id:2, facilityId: 2, mineralId: 2, mineralQty: 2,},
+        {id:3, facilityId: 3, mineralId: 3, mineralQty: 3,}
     ],
 
     purchases: [
@@ -54,7 +60,7 @@ const database = {
 // in the database to be used in other modules.
 
 export const getGovernors = () => {
-    return database.governors.map(g => ({...g}))
+    return database.governors.map(governor => ({...governor}))
 }
 
 export const getColonies = () => {
@@ -73,12 +79,11 @@ export const getPurchases = () => {
     return database.purchases.map(p => ({...p}))
 }
 
-
-
-// create and export FN to store the selected governor
-export const setSelectedGovernor = () => {
-
+export const getSelectedGovernor = () => {
+    return database.transientState.selectedGovernor
 }
+
+
 
 /////////////////////////////////////////////////////////
 ///// S T A T E   S E T T I N G  F U N C T I O N S //////
