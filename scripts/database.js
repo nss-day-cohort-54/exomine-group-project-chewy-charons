@@ -18,27 +18,27 @@ const database = {
     ],
 
     colonies: [
-        {id: 1, name: "Earth"},
-        {id: 2, name: "Europa"},
-        {id: 3, name: "Mars"}
+        { id: 1, name: "Earth" },
+        { id: 2, name: "Europa" },
+        { id: 3, name: "Mars" }
     ],
 
     minerals: [
-        {id: 1, type: "Iron"},
-        {id: 2, type: "Salt"},
-        {id: 3, type: "Nickel"}
+        { id: 1, type: "Iron" },
+        { id: 2, type: "Salt" },
+        { id: 3, type: "Nickel" }
     ],
 
     facilities: [
-        {id: 1, name: "Io", active: true},
-        {id: 2, name: "Ganymede", active: true},
-        {id: 3, name: "NSS", active: false}
+        { id: 1, name: "Io", active: true },
+        { id: 2, name: "Ganymede", active: true },
+        { id: 3, name: "NSS", active: false }
     ],
 
     facilityMinerals: [
-        {id:1, facilityId: 1, mineralId: 1, mineralQty: 1,},
-        {id:2, facilityId: 2, mineralId: 2, mineralQty: 2,},
-        {id:3, facilityId: 3, mineralId: 3, mineralQty: 3,}
+        { id: 1, facilityId: 1, mineralId: 1, mineralQty: 1, },
+        { id: 2, facilityId: 2, mineralId: 2, mineralQty: 2, },
+        { id: 3, facilityId: 3, mineralId: 3, mineralQty: 3, }
     ],
 
     purchases: [
@@ -60,27 +60,32 @@ const database = {
 // in the database to be used in other modules.
 
 export const getGovernors = () => {
-    return database.governors.map(governor => ({...governor}))
+    return database.governors.map(governor => ({ ...governor }))
 }
 
 export const getColonies = () => {
-    return database.colonies.map(c => ({...c}))
+    return database.colonies.map(c => ({ ...c }))
 }
 
 export const getMinerals = () => {
-    return database.minerals.map(m => ({...m}))
+    return database.minerals.map(m => ({ ...m }))
 }
 
 export const getFacilities = () => {
-    return database.facilities.map(f => ({...f}))
+    return database.facilities.map(f => ({ ...f }))
 }
 
 export const getPurchases = () => {
-    return database.purchases.map(p => ({...p}))
+    return database.purchases.map(p => ({ ...p }))
 }
 
 export const getSelectedGovernor = () => {
     return database.transientState.selectedGovernor
+}
+
+
+export const getFacilityMinerals = () => {
+    return database.transientState.facilityMinerals
 }
 
 
@@ -125,8 +130,8 @@ export const setPurchase = (purchaseId) => {
 
 export const purchaseMineral = () => {
 
-        // Broadcast custom event to entire document so that the
-        // application can re-render and update state
-        document.dispatchEvent(new CustomEvent("stateChanged"))
-    }
+    // Broadcast custom event to entire document so that the
+    // application can re-render and update state
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+}
 
