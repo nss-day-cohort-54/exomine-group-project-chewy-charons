@@ -8,9 +8,9 @@ export const findIds = (facMin) => {
     const facilities = Facilities()
     const minerals = getMinerals()
 
-    const foundFacilties = facilities.find(
+    const foundFacilities = facilities.find(
         (facility) => {
-            return (facility.id === facMin.facilityId)
+            return facility.id === facMin.facilityId
         }
 
     )
@@ -19,9 +19,18 @@ export const findIds = (facMin) => {
 
     const foundMinerals = minerals.find(
         (mineral) => {
-            return (mineral.id === facMin.mineralId)
+            return mineral.id === facMin.mineralId
         }
     )
+    
 
-
+    
 }
+
+
+/*let html = `<h2> Facility Minerals For ${facility.name}</h2>`
+html += `<ul>`
+//variable to create radio buttons
+html += `<li>
+    <input type="radio" name="mineralQty" value="${facilityMinerals.id}" /> ${facilityMinerals.mineralQty} tons of ${mineral.type}`
+*/
