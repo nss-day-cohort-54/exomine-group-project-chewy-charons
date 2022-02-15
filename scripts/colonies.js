@@ -23,8 +23,6 @@ document.addEventListener(
     }
 )
 
-
-
 export const colonyList = () => {
 
     const governorSet = getSelectedGovernor()
