@@ -1,20 +1,30 @@
 
 
-import { getGovernors } from "./database.js";
+import { getGovernors, getColonies, setGovernor, getSelectedGovernor } from "./database.js";
 
 
 const governors = getGovernors()
+const colonies = getColonies()
 
 
-export const GovenorOptions = () => {
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.id === "governor") {
+            setGovernor(parseInt(event.target.value))
+        }
+    }
+)
+
+export const GovernorOptions = () => {
 
     let html = ` 
     <select id="governor">
         <option value="0"> Choose your Governor </option>`
 
-    const listItems = governors.map(gov => {
+    const listItems = governors.map(governor => {
         return `
-        <option value="${gov.id}"> ${gov.name}</option>
+        <option value="${governor.id}"> ${governor.name}</option>
         `
     })
 
