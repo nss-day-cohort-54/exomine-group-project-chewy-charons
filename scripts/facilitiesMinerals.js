@@ -1,4 +1,4 @@
-import { getFacilities, getFacilityMinerals, getSelectedFacility } from "./database.js";
+import { getFacilities, getFacilityMinerals, getSelectedFacility, setFacility } from "./database.js";
 import { Facilities } from "./facilities.js";
 
 
@@ -38,14 +38,14 @@ export const facilityList = () => {
 
         )
 
-        let html = "<h2>"
-
+        let html = "<h2>"    
         for (const facilityMineral of facilityMinerals) {
 
             // trying to figure out this conditional.
-            if (facilityMineral.mineralId === foundFacility.facilityId) {
+            if (facilityMineral.mineralId === foundFacility.id) {
 
-                html += `Facility minerals for ${facility.name}`
+                html += `Facility Minerals for ${foundFacility.name}`
+            
             }
 
         }
@@ -54,5 +54,5 @@ export const facilityList = () => {
 
         return html
     }
-   
+    return "<h2>Facility Minerals</h2>"
 }

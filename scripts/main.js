@@ -32,13 +32,11 @@ renderFacilityDropdown()
 const renderColonyHeader = () => {
     const colonyHeader = document.querySelector("#colonyHeader")
     colonyHeader.innerHTML = colonyList()
-
-
 }
 
 const renderFacilityMinerals = () => {
     const facilityMineral = document.querySelector("#facilityMineral")
     facilityMineral.innerHTML = facilityList()
-
-
 }
+
+renderFacilityMinerals()
