@@ -1,4 +1,5 @@
 const database = {
+
     transientState: {},
 
     governors: [
@@ -77,7 +78,7 @@ export const getPurchases = () => {
 
 // create and export FN to store the selected governor
 export const setSelectedGovernor = () => {
-
+ 
 }
 
 /////////////////////////////////////////////////////////
