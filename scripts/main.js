@@ -8,7 +8,9 @@ import { colonyList } from "./colonies.js"
 
 document.addEventListener("stateChanged", event => {
     GovernorOptions()
+    renderColonyHeader()
 })
+
 
 
 const renderGovernorDropdown = () => {
@@ -32,4 +34,3 @@ const renderColonyHeader = () => {
 
 }
 
-renderColonyHeader()
