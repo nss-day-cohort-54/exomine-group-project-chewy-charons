@@ -1,7 +1,7 @@
 // this module provide everything to update the DOM
 // all the imports, all the HTML
 
-import { Facilities } from "./facilities.js"
+/*import { Facilities } from "./facilities.js"
 import { GovernorOptions } from "./governors.js"
 
 export const xoMine = () => {
@@ -36,4 +36,4 @@ export const xoMine = () => {
     `
     return html
 }
-
+*/
