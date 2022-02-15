@@ -3,7 +3,7 @@ import { GovernorOptions } from "./governors.js"
 
 import { Facilities } from "./facilities.js"
 
-
+import { colonyList } from "./colonies.js"
 
 
 document.addEventListener("stateChanged", event => {
@@ -24,3 +24,12 @@ const renderFacilityDropdown = () => {
 }
 
 renderFacilityDropdown()
+
+const renderColonyHeader = () => {
+    const colonyHeader = document.querySelector("#colonyHeader")
+    colonyHeader.innerHTML = colonyList()
+
+
+}
+
+renderColonyHeader()

@@ -1,9 +1,10 @@
-
+//  importing the getGovernors function from database
 
 import { getGovernors, getColonies, setGovernor, getSelectedGovernor } from "./database.js";
 
 
 const governors = getGovernors()
+
 const colonies = getColonies()
 
 
@@ -16,10 +17,11 @@ document.addEventListener(
     }
 )
 
+
 export const GovernorOptions = () => {
 
     let html = ` 
-    <select id="governor">
+    <select id="governor" name="gov">
         <option value="0"> Choose your Governor </option>`
 
     const listItems = governors.map(governor => {
