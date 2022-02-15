@@ -7,17 +7,29 @@ import { GovernorOptions } from "./governors.js"
 export const xoMine = () => {
     let html = `
     <h1>Solar System Mining Marketplace</h1>
-
+<article class="choices">
+    <section class="govChoice">
     <label class="chooseGovernor" for="chooseGovernor">Choose a Governor</label>
             ${GovernorOptions()}
+    </section>
 
+    <section class="facilityChoice">
+    <h2></h2>
     <label class="chooseFacility" for="chooseFacility">Choose a Facility</label>
              ${Facilities()}
+    </section>
 
+    <section class="facilityMinerals">
+    <h2></h2>
+    </section>
 
-    <article>
+   <article class="spaceCart">
+
+   <button id="orderButton"> Purchase Mineral </button>
+
+   </article>
         
-    </article>
+</article>
 
 
 

@@ -4,13 +4,9 @@ import { getGovernors, getColonies, setGovernor, getSelectedGovernor } from "./d
 
 
 const governors = getGovernors()
-const colonies = getColonies()
 
 const colonies = getColonies()
 
-
-
-export const GovernorOptions = () => {
 
 document.addEventListener(
     "change",
@@ -20,6 +16,7 @@ document.addEventListener(
         }
     }
 )
+
 
 export const GovernorOptions = () => {
 
