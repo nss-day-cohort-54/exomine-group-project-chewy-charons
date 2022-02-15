@@ -8,14 +8,6 @@ const colonies = getColonies()
 
 const colonies = getColonies()
 
-document.addEventListener(
-    "change",
-    (event) => {
-        if (event.target.name === "gov") {
-            
-        }
-    }
-)
 
 
 export const GovernorOptions = () => {
