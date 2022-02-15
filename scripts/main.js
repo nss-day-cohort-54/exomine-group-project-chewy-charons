@@ -4,11 +4,13 @@ import { GovernorOptions } from "./governors.js"
 import { Facilities } from "./facilities.js"
 
 import { colonyList } from "./colonies.js"
+import { facilityList } from "./facilitiesMinerals.js"
 
 
 document.addEventListener("stateChanged", event => {
     GovernorOptions()
     renderColonyHeader()
+    renderFacilityMinerals()
 })
 
 
@@ -34,3 +36,9 @@ const renderColonyHeader = () => {
 
 }
 
+const renderFacilityMinerals = () => {
+    const facilityMineral = document.querySelector("#facilityMineral")
+    facilityMineral.innerHTML = facilityList()
+
+
+}

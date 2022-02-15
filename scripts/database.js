@@ -89,6 +89,9 @@ export const getFacilityMinerals = () => {
     return database.transientState.facilityMinerals
 }
 
+export const getSelectedFacility = () => {
+    return database.transientState.selectedFacility
+}
 
 
 /////////////////////////////////////////////////////////

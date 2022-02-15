@@ -1,38 +1,58 @@
-// import { getFacilityMinerals, getMinerals } from "./database.js";
-// import { Facilities } from "./facilities.js";
+import { getFacilities, getFacilityMinerals, getSelectedFacility } from "./database.js";
+import { Facilities } from "./facilities.js";
 
-// //we need to set facility.id === facilityminerals.facilityID
-// //looking for a facility and using that to find infor
-// export const findIds = (facMin) => {
 
-    const foundFacilities = facilities.find(
-        (facility) => {
-            return facility.id === facMin.facilityId
+// iterating through the colonies and displaying an html string
+// for the colonies and their information.
+
+const facilities = getFacilities()
+
+
+
+document.addEventListener(
+    "change",
+    (changeEvent) => {
+        if (changeEvent.target.id === "facility") {
+            setFacility(parseInt(changeEvent.target.value))
+        }
+    }
+)
+
+
+
+export const facilityList = () => {
+
+    const facilitySet = getSelectedFacility()
+    const facilityMinerals = getFacilityMinerals()
+    
+    // check if facilitySet has any value
+    if (facilitySet) {
+
+        const foundFacility = facilities.find(
+            (facility) => {
+                // if it does have a value, find the 
+                //facility object associated with the ID
+
+                return facility.id === facilitySet
+            }
+
+        )
+
+        let html = "<h2>"
+
+        for (const facilityMineral of facilityMinerals) {
+
+            // trying to figure out this conditional.
+            if (facilityMineral.mineralId === foundFacility.facilityId) {
+
+                html += `Facility minerals for ${facility.name}`
+            }
+
         }
 
-//     const foundFacilties = facilities.find(
-//         (facility) => {
-//             return (facility.id === facMin.facilityId)
-//         }
+        html += "</h2>"
 
-//     )
-
-
-
-    const foundMinerals = minerals.find(
-        (mineral) => {
-            return mineral.id === facMin.mineralId
-        }
-    )
-    
-
-    
+        return html
+    }
+   
 }
-
-
-/*let html = `<h2> Facility Minerals For ${facility.name}</h2>`
-html += `<ul>`
-//variable to create radio buttons
-html += `<li>
-    <input type="radio" name="mineralQty" value="${facilityMinerals.id}" /> ${facilityMinerals.mineralQty} tons of ${mineral.type}`
-*/
