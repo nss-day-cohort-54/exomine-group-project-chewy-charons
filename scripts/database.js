@@ -9,7 +9,7 @@ const database = {
         { id: 4, name: "Demi Lovato", colonyId: 2, active: true },
         { id: 5, name: "Poot Lovato", colonyId: 3, active: true },
         { id: 6, name: "Steve Brownlee", colonyId: 3, active: false },
-        { id: 7, name: "Naomi Watts", colonyId: 4, active: true },
+        { id: 7, name: "Naomi Watts", colonyId: 2, active: true },
         { id: 8, name: "Charlie Manson", colonyId: 1, active: false },
         { id: 9, name: "Ben Stein", colonyId: 2, active: true },
         { id: 10, name: "Marsha Brady", colonyId: 2, active: false },
@@ -37,9 +37,9 @@ const database = {
     ],
 
     facilityMinerals: [
-        { id: 1, facilityId: 1, mineralId: 1, mineralQty: 1, },
-        { id: 2, facilityId: 2, mineralId: 2, mineralQty: 2, },
-        { id: 3, facilityId: 3, mineralId: 3, mineralQty: 3, }
+        { id: 1, facilityId: 1, mineralId: 1, mineralQty: 150, },
+        { id: 2, facilityId: 2, mineralId: 2, mineralQty: 3000, },
+        { id: 3, facilityId: 3, mineralId: 3, mineralQty: 250, }
     ],
 
     purchases: [

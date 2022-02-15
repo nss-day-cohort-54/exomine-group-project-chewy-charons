@@ -1,13 +1,13 @@
 import { getFacilities, getFacilityMinerals, getSelectedFacility, setFacility } from "./database.js";
 import { Facilities } from "./facilities.js";
-
+import { getMinerals } from "./database.js";
 
 // iterating through the colonies and displaying an html string
 // for the colonies and their information.
 
 const facilities = getFacilities()
 
-
+const minerals = getMinerals()
 
 document.addEventListener(
     "change",
@@ -24,6 +24,7 @@ export const facilityList = () => {
 
     const facilitySet = getSelectedFacility()
     const facilityMinerals = getFacilityMinerals()
+    const minerals = getMinerals()
     
     // check if facilitySet has any value
     if (facilitySet) {
@@ -51,6 +52,16 @@ export const facilityList = () => {
         }
 
         html += "</h2>"
+
+        for (const mineral of minerals) {
+        html += `<ul> 
+        <li> 
+        <input type="radio" name="mineralQty" value="${facilityMinerals.mineralQty}" /> 
+        ${facilityMinerals.mineralQty} tons ${mineral.type}
+        </li>
+        </ul>`
+
+        }
 
         return html
     }
