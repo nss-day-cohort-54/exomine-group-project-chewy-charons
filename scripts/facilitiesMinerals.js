@@ -1,7 +1,6 @@
-import { getFacilities, getFacilityMinerals, getSelectedFacility, setFacility } from "./database.js";
+import { getFacilities, getFacilityMinerals, getSelectedFacility, setFacility, setFacilityMineral } from "./database.js";
 import { Facilities } from "./facilities.js";
-import { getMinerals } from "./database.js";
-import { setMineral } from "./database.js";
+import { getMinerals, getSelectedFacilityMineral } from "./database.js";
 import { getSelectedMineral } from "./database.js";
 
 // iterating through the colonies and displaying an html string
@@ -24,7 +23,7 @@ document.addEventListener(
     "change",
     (changeEvent) => {
         if (changeEvent.target.id === "mineral") {
-            setMineral(parseInt(changeEvent.target.value))
+            setFacilityMineral(parseInt(changeEvent.target.value))
         }
     }
 )
@@ -62,7 +61,7 @@ export const facilityList = () => {
                     if (facilityMineral.mineralId === mineral.id) {
                         html += `<ul> 
                         <li> 
-                        <input type="radio" id="mineral" value="${mineral.id}" /> 
+                        <input type="radio" id="mineral" value="${facilityMineral.id}" /> 
                         ${facilityMineral.mineralQty} tons ${mineral.type}
                         </li>
                         </ul>`
@@ -87,9 +86,39 @@ export const mineralOrder = () => {
     const minerals = getMinerals()
     const facilities = getFacilities()
     const selectedMineral = getSelectedMineral()
-    
+    const getFacMin = getSelectedFacilityMineral()
+/*
+   starting at facilityMineralId to reach found mineral and found facility
+   DONE     .find method entire facilitymineral obj 
+            take its properties and compare FKs to PKs
 
-    
+    DONE    .find method facilityMineral.facilityId equal facility.id
+    DONE    .find method facilityMineral.mineralId equal mineral.id
+
+*/
+
+    const findFacilityMineral = facilityMinerals.find(
+        (facilityMineral) => {
+            return facilityMineral.id === getFacMin
+        }
+    )
+
+    // for ( const facilityMineral of facilityMinerals) {
+    //     const findFacilityId = facilityMinerals.find(
+    //         (facility) => {
+    //             return facilityMineral.facilityId === facility.id
+    //         }
+    //     )
+    // }
+
+    // for ( const facilityMineral of facilityMinerals) {
+    //     const findMineralId = facilityMinerals.find(
+    //         (mineral) => {
+    //             return facilityMineral.mineralId === mineral.id
+    //         }
+    //     )
+    // }
+
     const foundFacility = facilities.find(
         (facility) => {
             // if it does have a value, find the 
@@ -99,19 +128,20 @@ export const mineralOrder = () => {
         }
 
     )
-
-    const foundMineral = minerals.find(
+    let foundMineral = undefined
+        if (getFacMin !== undefined){
+         foundMineral = minerals.find(
         (mineral) => {
-            return mineral.id === selectedMineral
+            return mineral.id === findFacilityMineral.mineralId
         }
             
     )
-
-    const foundFacilityMineral = facilityMinerals.find(
-        (facilityMineral) => {
-            return facilityMineral.mineralId === selectedMineral && facilityMineral.facilityId === facilitySet
-        }
-    )
+    }
+    // const foundFacilityMineral = facilityMinerals.find(
+    //     (facilityMineral) => {
+    //         return facilityMineral.mineralId === selectedMineral && facilityMineral.facilityId === facilitySet
+    //     }
+    // )
 
         if (foundMineral !== undefined) {
         let html = ""
