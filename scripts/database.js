@@ -39,7 +39,8 @@ const database = {
     facilityMinerals: [
         { id: 1, facilityId: 1, mineralId: 1, mineralQty: 150, },
         { id: 2, facilityId: 2, mineralId: 2, mineralQty: 3000, },
-        { id: 3, facilityId: 3, mineralId: 3, mineralQty: 250, }
+        { id: 3, facilityId: 3, mineralId: 3, mineralQty: 250, },
+        { id: 4, facilityId: 3, mineralId: 2, mineralQty: 1000, }
     ],
 
     purchases: [
