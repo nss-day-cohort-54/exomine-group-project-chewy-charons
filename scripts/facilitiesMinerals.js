@@ -40,29 +40,28 @@ export const facilityList = () => {
         )
 
         let html = "<h2>"    
+        html += `Facility Minerals for ${foundFacility.name}`
+        html += "</h2>"
         for (const facilityMineral of facilityMinerals) {
 
             // trying to figure out this conditional.
-            if (facilityMineral.mineralId === foundFacility.id) {
-
-                html += `Facility Minerals for ${foundFacility.name}`
+            if (facilityMineral.facilityId === foundFacility.id) { //this is weird to zach
+        
+                for (const mineral of minerals) {
+                    if (facilityMineral.mineralId === mineral.id) {
+                        html += `<ul> 
+                        <li> 
+                        <input type="radio" name="mineralQty" value="${facilityMineral.mineralQty}" /> 
+                        ${facilityMineral.mineralQty} tons ${mineral.type}
+                        </li>
+                        </ul>`
+                    }
+        
+                }
             
             }
 
         }
-
-        html += "</h2>"
-
-        for (const mineral of minerals) {
-        html += `<ul> 
-        <li> 
-        <input type="radio" name="mineralQty" value="${facilityMinerals.mineralQty}" /> 
-        ${facilityMinerals.mineralQty} tons ${mineral.type}
-        </li>
-        </ul>`
-
-        }
-
         return html
     }
     return "<h2>Facility Minerals</h2>"
