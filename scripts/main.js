@@ -5,13 +5,19 @@ import { Facilities } from "./facilities.js"
 
 import { colonyList } from "./colonies.js"
 import { facilityList } from "./facilitiesMinerals.js"
-
+import { mineralOrder } from "./facilitiesMinerals.js"
 
 document.addEventListener("stateChanged", event => {
     GovernorOptions()
     renderColonyHeader()
     renderFacilityMinerals()
+    renderMineralOrder()
 })
+
+const renderMineralOrder = () => {
+    const spaceCart = document.querySelector("#spaceCart")
+    spaceCart.innerHTML = mineralOrder()
+}
 
 
 
@@ -40,3 +46,4 @@ const renderFacilityMinerals = () => {
 }
 
 renderFacilityMinerals()
+

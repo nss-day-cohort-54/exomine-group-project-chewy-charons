@@ -2,28 +2,16 @@
 // and output Order information
 
 import { getFacilities, getMinerals } from "./database"
+import { getFacilityMinerals, getSelectedFacility, setFacility } from "./database.js";
 
 
 export const buildPurchaseListItem = (purchase) => {
 
     const minerals = getMinerals()
-
     const facilities = getFacilities()
-
-
-    const foundMinerals = minerals.find(
-        (mineral) => {
-            return (mineral.id === parseInt(purchase.mineralId))
-        }
-    )
-
-
-    const foundFacilities = facilities.find(
-        (facility) => {
-            return (facility.id === parseInt(purchase.facilityId))
-        }
-    )
-
+    const facilityMinerals = getFacilityMinerals()
+    const selectedFacility = getSelectedFacility()
+    const facilitySet = setFacility()
 
 
 
