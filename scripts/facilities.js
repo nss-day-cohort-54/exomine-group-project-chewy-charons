@@ -24,5 +24,3 @@ export const Facilities = () => {
     return html
 
 }
-
-// just adding something small so i can try ot push it
