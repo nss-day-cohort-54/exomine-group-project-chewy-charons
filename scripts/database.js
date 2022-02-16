@@ -94,6 +94,10 @@ export const getSelectedFacility = () => {
     return database.transientState.selectedFacility
 }
 
+export const getSelectedMineral = () => {
+    return database.transientState.selectedMineral
+}
+
 
 /////////////////////////////////////////////////////////
 ///// S T A T E   S E T T I N G  F U N C T I O N S //////
