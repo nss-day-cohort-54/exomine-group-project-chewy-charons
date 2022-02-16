@@ -51,7 +51,9 @@ const database = {
             mineralId: 1,
             facilityId: 1,
         }
-    ]
+    ],
+
+
 }
 
 
@@ -98,6 +100,9 @@ export const getSelectedMineral = () => {
     return database.transientState.selectedMineral
 }
 
+export const getSelectedFacilityMineral = () => {
+    return database.transientState.selectedFacilityMineral
+}
 
 /////////////////////////////////////////////////////////
 ///// S T A T E   S E T T I N G  F U N C T I O N S //////
@@ -128,6 +133,13 @@ export const setFacility = (facilityId) => {
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
+export const setFacilityMineral = (facilityMineralId) => {
+    database.transientState.selectedFacilityMineral = facilityMineralId
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+}
+
+
+
 // create and export FN to set state for purchase
 export const setPurchase = (purchaseId) => {
     database.transientState.selectedpurchase = purchaseId
@@ -144,3 +156,20 @@ export const purchaseMineral = () => {
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
+export const addPurchase = () => {
+    // copy the current state of user choices
+        const newOrder = {...database.transientState}
+
+        // add new PK to object
+        const lastIndex = database.customOrders.length - 1
+        newOrder.id = database.customOrders[lastIndex].id + 1   
+
+        // add new order obj to purchases
+        database.purchases.push(newOrder)
+
+        // reset temp state for user choices
+        database.transientState = {}
+
+        // broadcast notification that perm state has changed (for all modules)
+        document.dispatchEvent(new CustomEvent("stateChanged"))
+}
