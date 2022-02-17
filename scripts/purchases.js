@@ -44,8 +44,10 @@ export const colonyInventory = () => {
     const colonyMinerals = getColonyMinerals()
     const selectedFacilityMineral = getSelectedFacilityMineral()
     const governors = getGovernors()
-    let html = ""
+    
+
     if (selectedFacilityMineral) {
+        
         const foundFacilityMineral = facilityMinerals.find(
             (facilityMineral) => {
                 return facilityMineral.id === selectedFacilityMineral

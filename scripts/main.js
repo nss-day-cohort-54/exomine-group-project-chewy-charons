@@ -7,12 +7,20 @@ import { colonyList } from "./colonies.js"
 import { facilityList } from "./facilitiesMinerals.js"
 import { mineralOrder } from "./facilitiesMinerals.js"
 import { colonyInventory } from "./purchases.js"
+import { colonyMineralHtml } from "./colonies.js"
+
 
 document.addEventListener("stateChanged", event => {
     GovernorOptions()
     renderColonyHeader()
     renderFacilityMinerals()
     renderMineralOrder()
+   
+    
+})
+
+document.addEventListener("mineralPurchased", event => {
+    renderColonyMineralsHtml()
 })
 
 const renderMineralOrder = () => {
@@ -48,8 +56,13 @@ const renderFacilityMinerals = () => {
 
 renderFacilityMinerals()
 
-const renderColonyMineralsInventory = () => {
+// const renderColonyMineralsInventory = () => {
+//     const colonyMineral = document.querySelector("#colonyInfo")
+//     colonyMineral.innerHTML = colonyInventory()
+// }
+
+const renderColonyMineralsHtml = () => {
     const colonyMineral = document.querySelector("#colonyInfo")
-    colonyMineral.innerHTML = colonyInventory()
+    colonyMineral.innerHTML = colonyMineralHtml()
 }
-renderColonyMineralsInventory()
+

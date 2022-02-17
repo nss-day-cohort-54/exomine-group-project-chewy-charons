@@ -1,10 +1,10 @@
-import { getColonies, setGovernor } from "./database.js";
+import { getColonies, getMinerals, setGovernor } from "./database.js";
 
 import { getSelectedGovernor } from "./database.js";
 
 import { getGovernors } from "./database.js";
 
-
+import { getColonyMinerals } from "./database.js";
 
 // iterating through the colonies and displaying an html string
 // for the colonies and their information.
@@ -66,8 +66,45 @@ export const colonyList = () => {
 
 //
 
+// creating a function to generate the colony inentory html
+// 
 
-const colonyMineralHtml = () => {
+export const colonyMineralHtml = () => {
 
+const colonyMinerals = getColonyMinerals()
+const selectedGovernor = getSelectedGovernor()
+const minerals = getMinerals()
+
+    let html = ""
+
+    const foundGovernor = governors.find(
+        (governor) => {
+            return governor.id === selectedGovernor
+        }
+    )
+
+        
+    const filterColonyMinerals = colonyMinerals.filter(
+        (mineral) => {
+            return foundGovernor.colonyId === mineral.colonyId
+        }
+    )
+        
+
+   for (const colonyMineral of filterColonyMinerals) {
+
+    const foundMineral = minerals.find(
+        (mineral) => {
+            return mineral.id === colonyMineral.mineralId
+        }
+    )
+
+        
+      {
+        html += `${colonyMineral.mineralQty} tons of ${foundMineral.type}`
+    }
+
+   }
+    return html
 }
 
