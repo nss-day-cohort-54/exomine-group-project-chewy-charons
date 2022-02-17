@@ -14,7 +14,7 @@
 
 //somehow we need to subtract 1 from facilityMinerals.mineralQty and add 1 to the colony's inventory
 
-import { getFacilities, getMinerals, getColonyMinerals, getSelectedFacilityMineral } from "./database.js";
+import { getFacilities, getMinerals, getColonyMinerals, getSelectedFacilityMineral, getGovernors } from "./database.js";
 import { getFacilityMinerals, getSelectedMineral, getSelectedGovernor } from "./database.js";
 import { facilityList } from "./facilitiesMinerals.js";
 
@@ -27,42 +27,58 @@ const colonyMinerals = getColonyMinerals()
 //this event listener accesses the order button
 document.addEventListener(
     "click",
-    (event) => { 
+    (event) => {
         const clickedItem = event.target
         if (clickedItem.id === "orderButton") {
-        colonyInventory()
+            colonyInventory()
+        }
     }
-   }
-) 
+)
 //this event listener accesses the facility dropdown  options
 
 
 
 
 export const colonyInventory = () => {
-    const selectedGovernor= getSelectedGovernor()
+    const selectedGovernor = getSelectedGovernor()
     const colonyMinerals = getColonyMinerals()
     const selectedFacilityMineral = getSelectedFacilityMineral()
+    const governors = getGovernors()
+    let html = ""
     if (selectedFacilityMineral) {
         const foundFacilityMineral = facilityMinerals.find(
             (facilityMineral) => {
                 return facilityMineral.id === selectedFacilityMineral
             }
         )
+
+
+
+
+        //trying to find the mineral that equalled the facility mineral
+        const foundGovernor = governors.find(
+            (governor) => {
+                return governor.id === selectedGovernor
+            }
+        )
+
+
         for (const colonyMineral of colonyMinerals) {
 
-            if (foundFacilityMineral.mineralId === colonyMineral.mineralId && selectedGovernor.colonyId === colonyMineral.colonyId) {
-                let addedQty = colonyMineral.mineralQty + 1
-                let html = `<li>
-                ${addedQty} tons of ${foundFacilityMineral.id}
-                </li>`
+            if (foundFacilityMineral.mineralId === colonyMineral.mineralId && foundGovernor.colonyId === colonyMineral.colonyId) {
+                colonyMineral.mineralQty += 1
+                foundFacilityMineral.mineralQty -= 1
+
             }
         }
-        return html
     }
+
     //these values need to reference the radio option and dropdown selections!
-        
+    document.dispatchEvent(new CustomEvent("mineralPurchased"))
 }
+
+
+
 
 
 
