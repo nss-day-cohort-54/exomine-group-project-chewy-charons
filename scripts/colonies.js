@@ -63,3 +63,11 @@ export const colonyList = () => {
     // you can find the colony object associated with it
 }
 
+
+//
+
+
+const colonyMineralHtml = () => {
+
+}
+
