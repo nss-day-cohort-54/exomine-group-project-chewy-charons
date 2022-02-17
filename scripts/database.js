@@ -46,6 +46,8 @@ const database = {
     //do I have an obj with colonyId: 1 AND mineralId:1 ? If yes, +1 to mineralQty. If no, new obj
     colonyMinerals: [
         { id: 1, colonyId: 1, mineralId: 1, mineralQty: 10},
+        { id: 2, colonyId: 1, mineralId: 2, mineralQty: 15},
+        { id: 3, colonyId: 2, mineralId: 1, mineralQty: 10},
     ],
 
     purchases: [
