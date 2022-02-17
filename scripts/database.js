@@ -2,6 +2,7 @@ const database = {
 
     transientState: {},
 
+    
     governors: [
         { id: 1, name: "Beatrice Rubelle", colonyId: 1, active: true },
         { id: 2, name: "Zapp Brannigan", colonyId: 1, active: true },
@@ -17,30 +18,34 @@ const database = {
         { id: 12, name: "Molly Ringwald", colonyId: 1, active: false },
         { id: 13, name: "Ginger Grant", colonyId: 1, active: false }
     ],
-
+    
     colonies: [
         { id: 1, name: "Earth" },
         { id: 2, name: "Europa" },
         { id: 3, name: "Mars" }
     ],
-
+    
     minerals: [
         { id: 1, type: "Iron" },
         { id: 2, type: "Salt" },
         { id: 3, type: "Nickel" }
     ],
-
+    
     facilities: [
         { id: 1, name: "Io", active: true },
         { id: 2, name: "Ganymede", active: true },
         { id: 3, name: "NSS", active: false }
     ],
-
+    
     facilityMinerals: [
-        { id: 1, facilityId: 1, mineralId: 1, mineralQty: 150, },
-        { id: 2, facilityId: 2, mineralId: 2, mineralQty: 3000, },
-        { id: 3, facilityId: 3, mineralId: 3, mineralQty: 250, },
-        { id: 4, facilityId: 3, mineralId: 2, mineralQty: 1000, }
+        { id: 1, facilityId: 1, mineralId: 1, mineralQty: 150 },
+        { id: 2, facilityId: 2, mineralId: 2, mineralQty: 3000 },
+        { id: 3, facilityId: 3, mineralId: 3, mineralQty: 250 },
+        { id: 4, facilityId: 3, mineralId: 2, mineralQty: 1000 }
+    ],
+    //do I have an obj with colonyId: 1 AND mineralId:1 ? If yes, +1 to mineralQty. If no, new obj
+    colonyMinerals: [
+        { id: 1, colonyId: 1, mineralId: 1, mineralQty: 10},
     ],
 
     purchases: [
@@ -92,6 +97,10 @@ export const getFacilityMinerals = () => {
     return database.facilityMinerals.map(fm => ({...fm}))
 }
 
+export const getColonyMinerals = () => {
+    return database.colonyMinerals.map(cm => ({...cm}))
+}
+
 export const getSelectedFacility = () => {
     return database.transientState.selectedFacility
 }
@@ -139,7 +148,6 @@ export const setFacilityMineral = (facilityMineralId) => {
 }
 
 
-
 // create and export FN to set state for purchase
 export const setPurchase = (purchaseId) => {
     database.transientState.selectedpurchase = purchaseId
@@ -147,7 +155,7 @@ export const setPurchase = (purchaseId) => {
 }
 
 
-
+//need getColonyMineral, setColonyMineral
 
 export const purchaseMineral = () => {
 
@@ -156,7 +164,7 @@ export const purchaseMineral = () => {
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
-export const addPurchase = () => {
+/*export const addPurchase = () => {
     // copy the current state of user choices
         const newOrder = {...database.transientState}
 
@@ -172,4 +180,4 @@ export const addPurchase = () => {
 
         // broadcast notification that perm state has changed (for all modules)
         document.dispatchEvent(new CustomEvent("stateChanged"))
-}
+}*/

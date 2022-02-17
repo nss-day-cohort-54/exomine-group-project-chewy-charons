@@ -6,6 +6,7 @@ import { Facilities } from "./facilities.js"
 import { colonyList } from "./colonies.js"
 import { facilityList } from "./facilitiesMinerals.js"
 import { mineralOrder } from "./facilitiesMinerals.js"
+import { colonyInventory } from "./purchases.js"
 
 document.addEventListener("stateChanged", event => {
     GovernorOptions()
@@ -47,3 +48,8 @@ const renderFacilityMinerals = () => {
 
 renderFacilityMinerals()
 
+const renderColonyMineralsInventory = () => {
+    const colonyMineral = document.querySelector("#colonyInfo")
+    colonyMineral.innerHTML = colonyInventory()
+}
+renderColonyMineralsInventory()
