@@ -151,6 +151,7 @@ export const mineralOrder = () => {
     } else {
         return ""
     }
+    
 }
 
 

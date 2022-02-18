@@ -14,14 +14,14 @@
 
 //somehow we need to subtract 1 from facilityMinerals.mineralQty and add 1 to the colony's inventory
 
-import { getFacilities, getMinerals, getColonyMinerals, getSelectedFacilityMineral, getGovernors, addPurchase } from "./database.js";
-import { getFacilityMinerals, getSelectedMineral, getSelectedGovernor } from "./database.js";
+import { getFacilities, getMinerals, getColonyMinerals, getSelectedFacilityMineral, getGovernors } from "./database.js";
+import { getFacilityMinerals, getSelectedMineral, getSelectedGovernor, setColonyMineral } from "./database.js";
 import { facilityList } from "./facilitiesMinerals.js";
 
 const minerals = getMinerals()
 const facilities = getFacilities()
 const facilityMinerals = getFacilityMinerals()
-const colonyMinerals = getColonyMinerals()
+
 
 
 //this event listener accesses the order button
@@ -44,6 +44,7 @@ export const colonyInventory = () => {
     const colonyMinerals = getColonyMinerals()//facility minerals array
     const selectedFacilityMineral = getSelectedFacilityMineral()//selection made from radio options
     const governors = getGovernors()//governors array
+    
     
 
     if (selectedFacilityMineral) {//if a facility HAS BEEN selected from radio options, then:
@@ -69,13 +70,13 @@ export const colonyInventory = () => {
             if (foundFacilityMineral.mineralId === colonyMineral.mineralId && foundGovernor.colonyId === colonyMineral.colonyId) {
                 colonyMineral.mineralQty += 1
                 foundFacilityMineral.mineralQty -= 1
-
+colonyMineral.test = true;
             } else {//{ id: 1, colonyId: 1, mineralId: 1, mineralQty: 10},
-                addPurchase()
+                
             }
         }
     }
-
+    setColonyMineral(colonyMinerals)
     //these values need to reference the radio option and dropdown selections!
     document.dispatchEvent(new CustomEvent("mineralPurchased"))
 }

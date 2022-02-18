@@ -133,6 +133,14 @@ export const setColony = (colonyId) => {
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
+export const setColonyMineral = (colonyMineralArray) => {
+    database.colonyMinerals = colonyMineralArray
+}
+
+export const setfacilityMineralArray = (facilityMineralArray) => {
+    database.facilityMinerals = facilityMineralArray
+}
+
 // create and export FN to set state for mineral
 export const setMineral = (mineralId) => {
     database.transientState.selectedMineral = mineralId
@@ -168,10 +176,10 @@ export const purchaseMineral = () => {
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
-export const addPurchase = () => {
+/*export const addPurchase = () => {
     // copy the current state of user choices
         const newPurchase = {...database.transientState}
-
+       
         // add new PK to object
         const lastIndex = database.colonyMinerals.length - 1
         newPurchase.id = database.colonyMinerals[lastIndex].id + 1   
@@ -185,3 +193,4 @@ export const addPurchase = () => {
         // broadcast notification that perm state has changed (for all modules)
         document.dispatchEvent(new CustomEvent("mineralPurchased"))
 }
+*/
