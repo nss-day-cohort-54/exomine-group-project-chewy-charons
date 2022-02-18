@@ -15,18 +15,25 @@ document.addEventListener("stateChanged", event => {
     renderColonyHeader()
     renderFacilityMinerals()
     renderMineralOrder()
-   
-    
+
+
 })
 
 
 document.addEventListener("mineralPurchased", event => {
     renderColonyMineralsHtml()
+    renderFacilityMinerals()
 })
+
+
+
+
+
 
 const renderMineralOrder = () => {
     const spaceCart = document.querySelector("#spaceCart")
     spaceCart.innerHTML = mineralOrder()
+
 }
 
 
