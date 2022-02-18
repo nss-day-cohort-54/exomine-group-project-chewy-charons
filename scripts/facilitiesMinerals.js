@@ -55,7 +55,7 @@ export const facilityList = () => {
         for (const facilityMineral of facilityMinerals) {
 
             // trying to figure out this conditional.
-            if (facilityMineral.facilityId === foundFacility.id) { //this is weird to zach
+            if (facilityMineral.facilityId === foundFacility.id) {
         
                 for (const mineral of minerals) {
                     if (facilityMineral.mineralId === mineral.id) {
@@ -76,8 +76,6 @@ export const facilityList = () => {
     }
     return "<h2>Facility Minerals</h2>"
 }
-
-
 
 export const mineralOrder = () => {
 

@@ -19,6 +19,7 @@ document.addEventListener("stateChanged", event => {
     
 })
 
+
 document.addEventListener("mineralPurchased", event => {
     renderColonyMineralsHtml()
 })

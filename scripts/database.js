@@ -44,6 +44,8 @@ const database = {
         { id: 4, facilityId: 3, mineralId: 2, mineralQty: 1000 }
     ],
     //do I have an obj with colonyId: 1 AND mineralId:1 ? If yes, +1 to mineralQty. If no, new obj
+    colonyMineralBuilder: {},
+
     colonyMinerals: [
         { id: 1, colonyId: 1, mineralId: 1, mineralQty: 10},
         { id: 2, colonyId: 1, mineralId: 2, mineralQty: 15},
@@ -166,20 +168,20 @@ export const purchaseMineral = () => {
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
-/*export const addPurchase = () => {
+export const addPurchase = () => {
     // copy the current state of user choices
-        const newOrder = {...database.transientState}
+        const newPurchase = {...database.transientState}
 
         // add new PK to object
-        const lastIndex = database.customOrders.length - 1
-        newOrder.id = database.customOrders[lastIndex].id + 1   
+        const lastIndex = database.colonyMinerals.length - 1
+        newPurchase.id = database.colonyMinerals[lastIndex].id + 1   
 
         // add new order obj to purchases
-        database.purchases.push(newOrder)
+        database.colonyMinerals.push(newPurchase)
 
         // reset temp state for user choices
         database.transientState = {}
 
         // broadcast notification that perm state has changed (for all modules)
-        document.dispatchEvent(new CustomEvent("stateChanged"))
-}*/
+        document.dispatchEvent(new CustomEvent("mineralPurchased"))
+}
