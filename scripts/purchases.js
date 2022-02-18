@@ -14,7 +14,7 @@
 
 //somehow we need to subtract 1 from facilityMinerals.mineralQty and add 1 to the colony's inventory
 
-import { getFacilities, getMinerals, getColonyMinerals, getSelectedFacilityMineral, getGovernors } from "./database.js";
+import { getFacilities, getMinerals, getColonyMinerals, getSelectedFacilityMineral, getGovernors, addPurchase } from "./database.js";
 import { getFacilityMinerals, getSelectedMineral, getSelectedGovernor } from "./database.js";
 import { facilityList } from "./facilitiesMinerals.js";
 
@@ -40,17 +40,16 @@ document.addEventListener(
 
 
 export const colonyInventory = () => {
-    const selectedGovernor = getSelectedGovernor()
-    const colonyMinerals = getColonyMinerals()
-    const selectedFacilityMineral = getSelectedFacilityMineral()
-    const governors = getGovernors()
+    const selectedGovernor = getSelectedGovernor()//selection made from governor dropdown
+    const colonyMinerals = getColonyMinerals()//facility minerals array
+    const selectedFacilityMineral = getSelectedFacilityMineral()//selection made from radio options
+    const governors = getGovernors()//governors array
     
 
-    if (selectedFacilityMineral) {
-        
+    if (selectedFacilityMineral) {//if a facility HAS BEEN selected from radio options, then:
         const foundFacilityMineral = facilityMinerals.find(
             (facilityMineral) => {
-                return facilityMineral.id === selectedFacilityMineral
+                return facilityMineral.id === selectedFacilityMineral//bridge between dropdown facility and facMin obj
             }
         )
 
@@ -60,17 +59,19 @@ export const colonyInventory = () => {
         //trying to find the mineral that equalled the facility mineral
         const foundGovernor = governors.find(
             (governor) => {
-                return governor.id === selectedGovernor
+                return governor.id === selectedGovernor//gov obj.id is now equal to the dropdown selected governor
             }
         )
 
-
+//DD Facilty-> FacMinObj    DD Governor-> GovObj
         for (const colonyMineral of colonyMinerals) {
 
             if (foundFacilityMineral.mineralId === colonyMineral.mineralId && foundGovernor.colonyId === colonyMineral.colonyId) {
                 colonyMineral.mineralQty += 1
                 foundFacilityMineral.mineralQty -= 1
 
+            } else {//{ id: 1, colonyId: 1, mineralId: 1, mineralQty: 10},
+                addPurchase()
             }
         }
     }
