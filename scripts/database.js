@@ -1,8 +1,8 @@
-const database = {
+export const database = {
 
     transientState: {},
 
-    
+
     governors: [
         { id: 1, name: "Beatrice Rubelle", colonyId: 1, active: true },
         { id: 2, name: "Zapp Brannigan", colonyId: 1, active: true },
@@ -18,25 +18,25 @@ const database = {
         { id: 12, name: "Molly Ringwald", colonyId: 1, active: false },
         { id: 13, name: "Ginger Grant", colonyId: 1, active: false }
     ],
-    
+
     colonies: [
         { id: 1, name: "Earth" },
         { id: 2, name: "Europa" },
         { id: 3, name: "Mars" }
     ],
-    
+
     minerals: [
         { id: 1, type: "Iron" },
         { id: 2, type: "Salt" },
         { id: 3, type: "Nickel" }
     ],
-    
+
     facilities: [
         { id: 1, name: "Io", active: true },
         { id: 2, name: "Ganymede", active: true },
         { id: 3, name: "NSS", active: false }
     ],
-    
+
     facilityMinerals: [
         { id: 1, facilityId: 1, mineralId: 1, mineralQty: 150 },
         { id: 2, facilityId: 2, mineralId: 2, mineralQty: 3000 },
@@ -47,9 +47,9 @@ const database = {
     colonyMineralBuilder: {},
 
     colonyMinerals: [
-        { id: 1, colonyId: 1, mineralId: 1, mineralQty: 10},
-        { id: 2, colonyId: 1, mineralId: 2, mineralQty: 15},
-        { id: 3, colonyId: 2, mineralId: 1, mineralQty: 10},
+        { id: 1, colonyId: 1, mineralId: 1, mineralQty: 10 },
+        { id: 2, colonyId: 1, mineralId: 2, mineralQty: 15 },
+        { id: 3, colonyId: 2, mineralId: 1, mineralQty: 10 },
     ],
 
     purchases: [
@@ -98,11 +98,11 @@ export const getSelectedGovernor = () => {
 
 
 export const getFacilityMinerals = () => {
-    return database.facilityMinerals.map(fm => ({...fm}))
+    return database.facilityMinerals.map(fm => ({ ...fm }))
 }
 
 export const getColonyMinerals = () => {
-    return database.colonyMinerals.map(cm => ({...cm}))
+    return database.colonyMinerals.map(cm => ({ ...cm }))
 }
 
 export const getSelectedFacility = () => {
