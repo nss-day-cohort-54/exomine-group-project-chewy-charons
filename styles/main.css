@@ -1,0 +1,39 @@
+
+.toprow {
+    
+    display: flex
+    
+    
+}
+
+
+
+
+
+
+.dropdowns {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+#bottomfacility {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+
+
+
+
+.colonyIsh {
+    display: flex;
+    flex-direction: column;
+}
+

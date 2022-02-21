@@ -71,9 +71,9 @@ export const colonyList = () => {
 
 export const colonyMineralHtml = () => {
 
-const colonyMinerals = getColonyMinerals()
-const selectedGovernor = getSelectedGovernor()
-const minerals = getMinerals()
+    const colonyMinerals = getColonyMinerals()
+    const selectedGovernor = getSelectedGovernor()
+    const minerals = getMinerals()
 
     let html = ""
 
@@ -83,28 +83,28 @@ const minerals = getMinerals()
         }
     )
 
-        
+
     const filterColonyMinerals = colonyMinerals.filter(
         (mineral) => {
             return foundGovernor.colonyId === mineral.colonyId
         }
     )
-        
 
-   for (const colonyMineral of filterColonyMinerals) {
 
-    const foundMineral = minerals.find(
-        (mineral) => {
-            return mineral.id === colonyMineral.mineralId
+    for (const colonyMineral of filterColonyMinerals) {
+
+        const foundMineral = minerals.find(
+            (mineral) => {
+                return mineral.id === colonyMineral.mineralId
+            }
+        )
+
+
+        {
+            html += `${colonyMineral.mineralQty} tons of ${foundMineral.type} <br>`
         }
-    )
 
-        
-      {
-        html += `${colonyMineral.mineralQty} tons of ${foundMineral.type}`
     }
-
-   }
     return html
 }
 

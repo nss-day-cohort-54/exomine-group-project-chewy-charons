@@ -35,7 +35,7 @@ export const facilityList = () => {
     const facilitySet = getSelectedFacility()
     const facilityMinerals = getFacilityMinerals()
     const minerals = getMinerals()
-    
+
     // check if facilitySet has any value
     if (facilitySet) {
 
@@ -49,26 +49,26 @@ export const facilityList = () => {
 
         )
 
-        let html = "<h2>"    
+        let html = "<h2>"
         html += `Facility Minerals for ${foundFacility.name}`
         html += "</h2>"
         for (const facilityMineral of facilityMinerals) {
 
             // trying to figure out this conditional.
             if (facilityMineral.facilityId === foundFacility.id) {
-        
+
                 for (const mineral of minerals) {
                     if (facilityMineral.mineralId === mineral.id) {
-                        html += `<ul> 
-                        <li> 
-                        <input type="radio" id="mineral" value="${facilityMineral.id}" /> 
+                        html += `
+                         
+                        <input type="radio" id="mineral" value="${facilityMineral.id}"/> 
                         ${facilityMineral.mineralQty} tons ${mineral.type}
-                        </li>
-                        </ul>`
+                        </input>
+                        `
                     }
-        
+
                 }
-            
+
             }
 
         }
@@ -85,15 +85,15 @@ export const mineralOrder = () => {
     const facilities = getFacilities()
     const selectedMineral = getSelectedMineral()
     const getFacMin = getSelectedFacilityMineral()
-/*
-   starting at facilityMineralId to reach found mineral and found facility
-   DONE     .find method entire facilitymineral obj 
-            take its properties and compare FKs to PKs
-
-    DONE    .find method facilityMineral.facilityId equal facility.id
-    DONE    .find method facilityMineral.mineralId equal mineral.id
-
-*/
+    /*
+       starting at facilityMineralId to reach found mineral and found facility
+       DONE     .find method entire facilitymineral obj 
+                take its properties and compare FKs to PKs
+    
+        DONE    .find method facilityMineral.facilityId equal facility.id
+        DONE    .find method facilityMineral.mineralId equal mineral.id
+    
+    */
 
     const findFacilityMineral = facilityMinerals.find(
         (facilityMineral) => {
@@ -127,13 +127,13 @@ export const mineralOrder = () => {
 
     )
     let foundMineral = undefined
-        if (getFacMin !== undefined){
-         foundMineral = minerals.find(
-        (mineral) => {
-            return mineral.id === findFacilityMineral.mineralId
-        }
-            
-    )
+    if (getFacMin !== undefined) {
+        foundMineral = minerals.find(
+            (mineral) => {
+                return mineral.id === findFacilityMineral.mineralId
+            }
+
+        )
     }
     // const foundFacilityMineral = facilityMinerals.find(
     //     (facilityMineral) => {
@@ -141,17 +141,17 @@ export const mineralOrder = () => {
     //     }
     // )
 
-        if (foundMineral !== undefined) {
+    if (foundMineral !== undefined) {
         let html = ""
 
         html += `1 ton of ${foundMineral?.type} from ${foundFacility?.name}`
 
-       
-       return html
+
+        return html
     } else {
         return ""
     }
-    
+
 }
 
 
