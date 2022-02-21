@@ -20,7 +20,7 @@ document.addEventListener(
 
 export const GovernorOptions = () => {
 
-    let html = ` 
+    let html = ` Choose a governor
     <select id="governor" name="gov">
         <option value="0"> Choose your Governor </option>`
 
