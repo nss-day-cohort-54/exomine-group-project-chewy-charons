@@ -96,7 +96,6 @@ export const getSelectedGovernor = () => {
     return database.transientState.selectedGovernor
 }
 
-
 export const getFacilityMinerals = () => {
     return database.facilityMinerals.map(fm => ({ ...fm }))
 }

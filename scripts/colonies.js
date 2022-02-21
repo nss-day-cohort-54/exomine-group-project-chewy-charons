@@ -55,6 +55,9 @@ export const colonyList = () => {
         html += "</h2>"
 
         return html
+    } else {
+        let html = "<h2>Colony Mineral</h2>"
+        return html
     }
     // once we have a governor object we can access 
     // the colony id in our next conditional.
@@ -63,11 +66,8 @@ export const colonyList = () => {
     // you can find the colony object associated with it
 }
 
-
-//
-
 // creating a function to generate the colony inentory html
-// 
+
 
 export const colonyMineralHtml = () => {
 
@@ -76,7 +76,9 @@ export const colonyMineralHtml = () => {
     const minerals = getMinerals()
 
     let html = ""
-
+    if (selectedGovernor === 0) {
+        return ""
+    }
     const foundGovernor = governors.find(
         (governor) => {
             return governor.id === selectedGovernor

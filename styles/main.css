@@ -1,39 +1,84 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
 
-.toprow {
-    
-    display: flex
-    
-    
+/*Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+textarea {
+	color: #404040;
+	font-family: "Comfortaa", Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: "Patua One", serif;
+  letter-spacing: 2px;
+}
+
+ul {
+    list-style-type: none;
+    padding-inline-start: 0.25rem;
 }
 
 
+.toprow {
+    
+    display: flex;   
+    flex-direction: row;
+}
 
+#governorDropdown {
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
 
+.colonyIsh {
+    margin-top: 30px;
+    margin-left: 200px;
+}
 
+#facilityDropdown {
+    margin-bottom: 80px;
+}
 
 .dropdowns {
     display: flex;
     flex-direction: column;
 }
 
-
-
-
-
-#bottomfacility {
+.bottomfacility {
     display: flex;
     flex-direction: row;
+    
 }
 
+#facilityMineral{
+    width: 800px;
+    border-style: dotted;
+    border-color: rgb(175, 64, 179);
+    margin-right: 20px;
+    text-align: center;
+}
 
-
-
-
-
-
-
-.colonyIsh {
+#cartInfo{
     display: flex;
     flex-direction: column;
+    text-align:center;
+    width: 300px;
+    border-style: dotted;
+    border-color: rgb(56, 122, 221);
 }
+
+#orderButton {
+    margin: 20px;
+    padding: 0.5rem;
+}
+
+
+
+
+
 
