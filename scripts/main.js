@@ -13,6 +13,7 @@ import { colonyMineralHtml } from "./colonies.js"
 document.addEventListener("stateChanged", event => {
     GovernorOptions()
     renderColonyHeader()
+    renderColonyMineralsHtml()
     renderFacilityMinerals()
     renderMineralOrder()
 
